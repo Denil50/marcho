@@ -32,7 +32,10 @@ function styles() {
 function scripts() {
     return src([
         'node_modules/jquery/dist/jquery.js',
-        'app/js/main.js',
+        'node_modules/slick-carousel/slick/slick.js',
+        'node_modules/@fancyapps/fancybox/dist/jquery.fancybox.js',
+        'node_modules/rateyo/src/jquery.rateyo.js',
+        'app/js/main.js'
     ])
     .pipe(concat('main.min.js'))
     .pipe(uglify())
@@ -60,7 +63,7 @@ function build() {
     return src([
         'app/**/*.html',
         'app/css/style.min.css',
-        'app/js/main.min.js',
+        'app/js/main.min.js'
     ], {base: 'app'})
     .pipe(dest('dist'))
 }
@@ -71,7 +74,7 @@ function cleanDist() {
 
 function watching() {
     watch(['app/scss/**/*.scss'], styles);
-    watch(['app/js/**/*.js', '!app/js.main.min.js'], styles);
+    watch(['app/js/**/*.js', '!app/js/main.min.js'], scripts);
     watch(['app/**/*.html'],).on('change', browserSync.reload);
 }
 
