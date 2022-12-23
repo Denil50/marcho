@@ -1,5 +1,9 @@
 $(function () {
 
+  let sliderThumb = $('.product-slide__thumb');
+  let sliderBig =  $('.product-slide__big');
+
+
   $('.menu__btn').on('click', function () {
     $('.menu__list').toggleClass('menu__list--active');
   });
@@ -8,7 +12,27 @@ $(function () {
     $(this).next().slideToggle();
     $(this).toggleClass('active');
   });
-  
+
+  sliderThumb.slick(
+    {
+      slidesToShow: 4,
+      slidesToScroll: 1,
+      asNavFor: sliderBig,
+      vertical: true,
+      draggable: false,
+      focusOnSelect: true,
+    }
+  );
+
+  sliderBig.slick(
+    {
+      asNavFor: sliderThumb,
+      arrows: false,
+      draggable: false,
+      fade: true,
+    }
+  );
+
   $('.shop-content__filter-btn').on('click', function(){
     $('.shop-content__filter-btn').removeClass('shop-content__filter-btn--active');
     $(this).addClass('shop-content__filter-btn--active');
@@ -21,7 +45,7 @@ $(function () {
     $('.product-item').removeClass('product-item--list');
   });
 
-  $('.select-style').styler();
+  $('.select-style, .product-one__num').styler();
 
   $('.filter-price__input').ionRangeSlider({
     type: "double",
