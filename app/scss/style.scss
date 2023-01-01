@@ -20,6 +20,7 @@
         margin-bottom: 40px;
         @extend %roboto-700;
         font-size: 48px;
+        line-height: 52px;
     }
     &__text{
         margin-bottom: 55px;
@@ -29,6 +30,9 @@
         @extend %btn;
         padding: 14px 35px;
     }
+}
+.jq-number__field input{
+    text-align: center;
 }
 
 
