@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/contacts.min.css">
+    <link rel="stylesheet" href="css/style.min.css">
+</head>
+
+<body id="body">
+
+    {% include ('app/module/_header/_header.html') %}
+
+    <main class="main">
+        {% include ('app/module/_top/_top.html') %}
+
+        <section class="map">
+            <div class="container">
+                <div id="map"></div>
+            </div>
+        </section>
+
+        <section class="contact">
+            <div class="container">
+                <div class="contact__inner">
+                    <div class="contact__info">
+                        <h3 class="contact__info-title">Feel Free Don’t Hesitate To Contact With Us</h3>
+                        <p class="contact__info-text">Lorem ipsum dolor sit amet, consectetur adingn elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo maecnaacnrao cumsan lacus vel facilisis.</p>
+                        <ul class="contact__info-list">
+                            <li class="contact__info-item">
+                                <a class="contact__info-tel" href="tel:+01234567896">+0-123-456-7896</a>
+                                <a class="contact__info-tel" href="tel:+01234567896">+0-123-456-7896</a>
+                            </li>
+                            <li class="contact__info-item contact__info-item--location">
+                                Ranlon Market 789 Road,<br>
+                                Market Street, Newyork
+                            </li>
+                            <li class="contact__info-item contact__info-item--email">
+                                <div>yourmailaddress@gmail.com</div>
+                                <div>companymail@gmail.com</div>
+                            </li>
+                        </ul>
+                    </div>
+                    <form action="#" class="contact__form">
+                        <div class="contact__form-title">Contact Form</div>
+                        <div class="contact__form-box">
+                            <input class="contact__form-input" type="text" placeholder="Your Name">
+                            <input class="contact__form-input" type="text" placeholder="Your E-mail Address">
+                        </div>
+                        <input class="contact__form-input" type="text" placeholder="Subject">
+                        <textarea class="contact__form-textarea" placeholder="Message here"></textarea>
+                        <button class="contact__form-btn" type="submit">SEND MESSAGE</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+   {% include ('app/module/_footer/_footer.html') %}
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=&callback=initMap&v=weekly" defer></script>
+    <script>
+        let map;
+
+        function initMap() {
+            map = new google.maps.Map(document.getElementById("map"), {
+                center: { lat: 51.666483, lng: 39.192435 },
+                zoom: 10,
+                styles: [
+                    {
+                        "featureType": "all",
+                        "elementType": "geometry.fill",
+                        "stylers": [
+                            {
+                                "weight": "2.00"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "all",
+                        "elementType": "geometry.stroke",
+                        "stylers": [
+                            {
+                                "color": "#9c9c9c"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "all",
+                        "elementType": "labels.text",
+                        "stylers": [
+                            {
+                                "visibility": "on"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "administrative.land_parcel",
+                        "elementType": "geometry.fill",
+                        "stylers": [
+                            {
+                                "hue": "#00fff7"
+                            },
+                            {
+                                "saturation": "59"
+                            },
+                            {
+                                "lightness": "100"
+                            },
+                            {
+                                "gamma": "5.12"
+                            },
+                            {
+                                "weight": "5.47"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "landscape",
+                        "elementType": "all",
+                        "stylers": [
+                            {
+                                "color": "#f2f2f2"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "landscape",
+                        "elementType": "geometry.fill",
+                        "stylers": [
+                            {
+                                "color": "#ffffff"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "landscape.man_made",
+                        "elementType": "geometry.fill",
+                        "stylers": [
+                            {
+                                "color": "#ffffff"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "landscape.natural.landcover",
+                        "elementType": "geometry.fill",
+                        "stylers": [
+                            {
+                                "weight": "10.00"
+                            },
+                            {
+                                "hue": "#5100ff"
+                            },
+                            {
+                                "saturation": "100"
+                            },
+                            {
+                                "lightness": "18"
+                            },
+                            {
+                                "gamma": "6.50"
+                            },
+                            {
+                                "visibility": "off"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "poi",
+                        "elementType": "all",
+                        "stylers": [
+                            {
+                                "visibility": "off"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "poi.park",
+                        "elementType": "geometry.fill",
+                        "stylers": [
+                            {
+                                "hue": "#a5ff00"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "road",
+                        "elementType": "all",
+                        "stylers": [
+                            {
+                                "saturation": -100
+                            },
+                            {
+                                "lightness": 45
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "road",
+                        "elementType": "geometry.fill",
+                        "stylers": [
+                            {
+                                "color": "#eeeeee"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "road",
+                        "elementType": "labels.text.fill",
+                        "stylers": [
+                            {
+                                "color": "#7b7b7b"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "road",
+                        "elementType": "labels.text.stroke",
+                        "stylers": [
+                            {
+                                "color": "#ffffff"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "road.highway",
+                        "elementType": "all",
+                        "stylers": [
+                            {
+                                "visibility": "simplified"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "road.arterial",
+                        "elementType": "labels.icon",
+                        "stylers": [
+                            {
+                                "visibility": "off"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "road.local",
+                        "elementType": "geometry.fill",
+                        "stylers": [
+                            {
+                                "hue": "#cfff00"
+                            },
+                            {
+                                "saturation": "0"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "transit",
+                        "elementType": "all",
+                        "stylers": [
+                            {
+                                "visibility": "off"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "water",
+                        "elementType": "all",
+                        "stylers": [
+                            {
+                                "color": "#46bcec"
+                            },
+                            {
+                                "visibility": "on"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "water",
+                        "elementType": "geometry.fill",
+                        "stylers": [
+                            {
+                                "color": "#c67272"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "water",
+                        "elementType": "labels.text.fill",
+                        "stylers": [
+                            {
+                                "color": "#a33939"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "water",
+                        "elementType": "labels.text.stroke",
+                        "stylers": [
+                            {
+                                "color": "#ffffff"
+                            }
+                        ]
+                    }
+                ]
+            });
+        }
+    </script>
+    <script src="js/main.min.js"></script>
+</body>
+
+</html>

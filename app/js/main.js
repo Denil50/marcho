@@ -8,6 +8,10 @@ $(function () {
     $('.menu__list').toggleClass('menu__list--active');
   });
 
+  $('.shop-filters-btn').on('click', function() {
+    $('.shop-filters').slideToggle();
+  });
+
   $('.footer-top__title').on('click', function () {
     $(this).next().slideToggle();
     $(this).toggleClass('active');
@@ -45,6 +49,14 @@ $(function () {
       arrows: false,
       draggable: false,
       fade: true,
+      responsive: [
+        {
+          breakpoint: 1051,
+          settings: {
+            draggable: true,
+          }
+        },
+      ],
     }
   );
 
@@ -55,9 +67,11 @@ $(function () {
   
   $('.button-list').on('click', function(){
     $('.product-item').addClass('product-item--list');
+    $('.shop-content__inner').addClass('shop-content__nogrid');
   });
   $('.button-grid').on('click', function(){
     $('.product-item').removeClass('product-item--list');
+    $('.shop-content__inner').removeClass('shop-content__nogrid');
   });
 
   $('.select-style, .product-one__num').styler();
